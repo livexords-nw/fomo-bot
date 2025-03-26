@@ -28,6 +28,9 @@ Fomo Bot is your automation buddy designed to simplify daily operations. This bo
 - **⏱️ Configurable Delays:**  
   Fine-tune delays between account switches and loop iterations to match your specific workflow needs.
 
+- **🔌 Support Proxy:**  
+  Use HTTP/HTTPS proxies to enhance your multi-account setups.
+
 Fomo Bot is built with flexibility and efficiency in mind – it's here to help you automate your operations and boost your productivity!
 
 ---
@@ -44,6 +47,7 @@ Fomo Bot is built with flexibility and efficiency in mind – it's here to help 
 - 👥 **Multi Account Support:** Manage multiple accounts with ease.
 - 🧵 **Thread System:** Execute tasks concurrently using configurable threads.
 - ⏱️ **Configurable Delays:** Adjust delays between account switches and loop cycles to suit your operational tempo.
+- 🔌 **Support Proxy:** Use proxies to manage your connections effectively.
 
 ---
 
