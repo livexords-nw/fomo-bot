@@ -108,7 +108,16 @@ Click the link below to get started:
 
    Create a file named `query.txt` and add your query data.
 
-5. **Run Bot**
+5. **Set Up Proxy (Optional)**  
+   To use a proxy, create a `proxy.txt` file and add proxies in the format:
+
+   ```
+   http://username:password@ip:port
+   ```
+
+   - Only HTTP and HTTPS proxies are supported.
+
+6. **Run Bot**
 
    ```bash
    python main.py
