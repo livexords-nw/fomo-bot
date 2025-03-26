@@ -433,7 +433,7 @@ class fomo:
                 continue
 
         # Step 4: Claim orders that are ready (status "CLAIM_AVAILABLE")
-        # Re-fetch the order info to get the latest order statuses
+        # Re-fetch the order info to get the latest order status
         try:
             orders_response = requests.get(orders_url, headers=headers)
             orders_response.raise_for_status()
@@ -446,11 +446,44 @@ class fomo:
         for period_item in periods:
             if "order" in period_item:
                 order_info = period_item["order"]
-                if order_info.get("status") == "CLAIM_AVAILABLE":
-                    order_id = order_info.get("id")
+                order_status = order_info.get("status")
+                order_id = order_info.get("id")
+                period_id = order_info.get("period", {}).get("id")
+                
+                if order_status == "NOT_WIN":
+                    upload_url = f"{self.BASE_URL}order/{order_id}/markUserChecked"
+                    self.log(
+                        f"🎯 Uploading result image for order ID {order_id} for period {period_id} (LOSE)",
+                        Fore.CYAN,
+                    )
+                    try:
+                        upload_response = requests.put(upload_url, headers=headers)
+                        upload_response.raise_for_status()
+                        upload_result = upload_response.json()
+                        self.log(
+                            f"✅ Order result image uploaded successfully: {upload_result}",
+                            Fore.GREEN,
+                        )
+                    except requests.exceptions.RequestException as e:
+                        self.log(
+                            f"❌ Failed to upload result image for order ID {order_id}: {e}",
+                            Fore.RED,
+                        )
+                        try:
+                            self.log(
+                                f"📄 Response content: {upload_response.text}", Fore.RED
+                            )
+                        except Exception:
+                            pass
+                    except Exception as e:
+                        self.log(
+                            f"❌ Unexpected error while uploading result image for order ID {order_id}: {e}",
+                            Fore.RED,
+                        )
+                elif order_status == "CLAIM_AVAILABLE":
                     claim_url = f"{self.BASE_URL}order/{order_id}/claim"
                     self.log(
-                        f"🎯 Claiming order ID {order_id} for period {order_info.get('period', {}).get('id')}",
+                        f"🎯 Claiming order ID {order_id} for period {period_id}",
                         Fore.CYAN,
                     )
                     try:

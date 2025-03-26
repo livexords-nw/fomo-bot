@@ -37,17 +37,11 @@ Fomo Bot is built with flexibility and efficiency in mind – it's here to help 
 
 ## 🌟 Version Updates
 
-**Current Version: v1.0.0**
+**Current Version: v1.0.1**
 
-### v1.0.0 - Initial Release
+### v1.0.1 - Latest Update
 
-- 📆 **Auto Daily:** Automatically claim your daily bonuses.
-- 📋 **Auto Task:** Automatically run scheduled tasks to keep your workflow smooth.
-- 🛒 **Auto Order:** Efficiently place and claim orders based on market sentiment.
-- 👥 **Multi Account Support:** Manage multiple accounts with ease.
-- 🧵 **Thread System:** Execute tasks concurrently using configurable threads.
-- ⏱️ **Configurable Delays:** Adjust delays between account switches and loop cycles to suit your operational tempo.
-- 🔌 **Support Proxy:** Use proxies to manage your connections effectively.
+- Improved auto order feature
 
 ---
 
